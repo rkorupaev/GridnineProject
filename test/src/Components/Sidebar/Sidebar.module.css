@@ -1,0 +1,7 @@
+.sidebar {
+    background-color: lightgrey;
+    min-height: 500px;
+    width: 250px;
+    padding-top: 15px;
+    margin-right: 20px;
+}

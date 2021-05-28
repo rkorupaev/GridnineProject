@@ -1,0 +1,125 @@
+.flighsBlock {
+    padding-top: 15px;
+    flex-grow: 1;
+}
+
+.flightItem {
+    background-color: #0087c9;
+    margin-bottom: 20px;
+}
+
+.flightItem:last-child{
+    margin-bottom: 0;
+}
+
+.flightItem__header {
+    padding: 5px 15px;
+    display: flex;
+}
+
+.flightItem__header img {
+    align-self: center;
+}
+
+.flightItem__priceBlock {
+    text-align: right;
+    color: white;
+    margin-left: auto;
+}
+
+.flightItem__priceBlock h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.flightItem__priceBlock p {
+    margin: 0;
+    font-size: 10px;
+}
+
+
+.flightItem__button {
+    color: white;
+    background-color: #ffb168;
+    border: none;
+    outline: none;
+    min-height: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.flightItem__infoBlock {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 3px;
+}
+
+.flightItem__infoBlock:last-child {
+    margin-bottom: 0;
+}
+
+.flightItem__cities {
+    display: flex;
+    flex-grow: 1;
+    border-bottom: 2px solid #fafafa;
+    padding: 10px;
+    line-height: 24px;
+}
+
+.flightItem__dates {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.flightItem__infoBlock p {
+    margin: 0;
+}
+
+.flightItem__cities span,
+.flightItem__dates span {
+    color: #0087c9;
+}
+
+.flightItem__arrow {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.flightItem__transfers {
+    align-self: center;
+    color: #ffdabf;
+    position: relative;
+    margin: 0;
+}
+
+.flightItem__transfers::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 330px;
+    height: 1px;
+    background-color: grey;
+    top: 14px;
+    left: -367px;
+}
+
+.flightItem__transfers::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 330px;
+    height: 1px;
+    background-color: grey;
+    top: 14px;
+    left: 125px;
+}
+
+.flightItem__airlineInfo {
+    margin: 0;
+    padding-left: 10px;
+}

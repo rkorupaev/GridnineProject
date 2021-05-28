@@ -1,0 +1,24 @@
+.filtersBlock {
+    background-color: white;
+    min-height: 400px;
+    width: 250px;
+}
+
+.filtersBlock__form {
+    padding: 15px;
+}
+
+.filtersBlock__form p {
+    font-weight: bold;
+}
+
+.filtersBlock__radio {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtersBlock__rafioItem {
+    display: flex;
+    align-items: center;
+    line-height: 24px;
+}
