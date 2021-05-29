@@ -26,7 +26,8 @@ const MainBodyContainer = (props) => {
     }, [data]);
 
     const filterArray = (filterOption) => {
-        switch (filterOption) {
+        debugger
+        switch (filterOption.type) {
             case `priceup`:
                 filteredFlightsArray.sort((a, b) => a.flight.price.total.amount - b.flight.price.total.amount);
                 setFilteredFlightsArray([...filteredFlightsArray]);

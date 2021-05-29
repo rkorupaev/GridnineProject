@@ -70,7 +70,10 @@ const FiltersBlock = (props) => {
         <label className={className}>
             <input type={type}
                    id={value}
-                   onClick={(e) => console.dir(e)}/>
+                   onClick={(e) => {
+                       props.filterArray({ type: e.target.id, isChecked: e.target.checked });
+                       console.dir(e.target, e.target.checked);
+                   }}/>
             {title}
         </label>
     );
@@ -80,7 +83,7 @@ const FiltersBlock = (props) => {
             <form className={styles.filtersBlock__form}>
                 <p>Сортировать</p>
                 <div className={styles.filtersBlock__filterOptions} onChange={(e) => {
-                    props.filterArray(e.target.value);
+                    props.filterArray({type: e.target.value});
                 }}>
                     {sortLabels}
                 </div>
@@ -88,8 +91,6 @@ const FiltersBlock = (props) => {
                 <div className={styles.filtersBlock__filterOptions}>
                     {displayedTransferFiltersCheckboxArray}
                 </div>
-
-
             </form>
         </div>
     )
