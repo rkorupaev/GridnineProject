@@ -29,7 +29,7 @@ const FlightSegment = (props) => {
                     <p>◴ 14 ч 25 мин</p>
                     <p><span>19 авг. ср</span> 09:25</p>
                 </div>
-                <p className={styles.flightItem__transfers}>Пересадка</p>
+                <p className={styles.flightItem__transfers}>{leg.segments.length - 1} Пересадка</p>
                 <p className={styles.flightItem__airlineInfo}>Рейс
                     выполняет: <span>{props.carrier}</span></p>
             </div>)}

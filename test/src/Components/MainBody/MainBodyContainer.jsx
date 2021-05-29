@@ -23,7 +23,6 @@ const MainBodyContainer = (props) => {
         }
     }, [data]);
 
-
     const filterArray = (filterOption) => {
         switch (filterOption) {
             case `priceup`:
@@ -47,7 +46,7 @@ const MainBodyContainer = (props) => {
 
                 mappedArray.sort((a, b) => a.legTravelTime - b.legTravelTime);
 
-                let filteredResult = mappedArray.map(item=> {
+                let filteredResult = mappedArray.map(item => {
                     return item.flight;
                 })
                 setFilteredFlightsArray([...filteredResult]);

@@ -12,7 +12,7 @@
     font-weight: bold;
 }
 
-.filtersBlock__radio {
+.filtersBlock__filterOptions {
     display: flex;
     flex-direction: column;
 }

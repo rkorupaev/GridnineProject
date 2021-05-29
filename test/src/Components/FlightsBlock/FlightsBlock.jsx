@@ -3,6 +3,8 @@ import styles from './FlightsBlock.module.css';
 import FlightSegment from "./FlightSegment/FlightSegment";
 
 const FlightsBlock = (props) => {
+
+
     return (
         <div className={styles.flighsBlock}>
             {props.data?.map(flight => <div className={styles.flightItem}>
