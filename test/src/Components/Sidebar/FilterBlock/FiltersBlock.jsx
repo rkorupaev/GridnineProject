@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FiltersBlock.module.css';
 
 const FiltersBlock = (props) => {
-    const labelMock = [
+    const labelMockSort = [
         {
             className: 'styles.filtersBlock__rafioItem',
             type: "radio",
@@ -23,9 +23,34 @@ const FiltersBlock = (props) => {
             name: "sortingoption",
             value: "duration",
             title: " - по времени в пути"
+        }
+    ];
+
+    const labelMockTransfersFilter = [
+        {
+            className: 'styles.filtersBlock__transferFilterCheckbox',
+            type: "checkbox",
+            name: "checkbox1",
+            value: "notransfer",
+            title: " - Без пересадок"
         },
-    ]
-    const labels = labelMock.map(({className, type, name, value, title}) =>
+        {
+            className: 'styles.filtersBlock__transferFilterCheckbox',
+            type: "checkbox",
+            name: "checkbox2",
+            value: "onetransfer",
+            title: " - 1 пересадка"
+        },
+        {
+            className: 'styles.filtersBlock__transferFilterCheckbox',
+            type: "checkbox",
+            name: "checkbox3",
+            value: "twotransfer",
+            title: " - 2 пересадки"
+        }
+    ];
+
+    const sortLabels = labelMockSort.map(({className, type, name, value, title}) =>
         <label
             className={className}>
             <input
@@ -34,7 +59,21 @@ const FiltersBlock = (props) => {
                 value={value}/>
             {title}
         </label>
-    )
+    );
+
+    let transferFiltersCheckboxArray = [];
+    for (let i = 0; i < props.transfersCount; i++) {
+        transferFiltersCheckboxArray.push(labelMockTransfersFilter[i]);
+    }
+
+    const displayedTransferFiltersCheckboxArray = transferFiltersCheckboxArray.map(({className, type, name, value, title}) =>
+        <label className={className}>
+            <input type={type}
+                   id={value}
+                   onClick={(e) => console.dir(e)}/>
+            {title}
+        </label>
+    );
 
     return (
         <div className={styles.filtersBlock}>
@@ -43,12 +82,11 @@ const FiltersBlock = (props) => {
                 <div className={styles.filtersBlock__filterOptions} onChange={(e) => {
                     props.filterArray(e.target.value);
                 }}>
-                    {labels}
+                    {sortLabels}
                 </div>
                 <p>Фильтровать</p>
-                <div className={styles.filtersBlock__filterOptions} >
-                    <input type="checkbox" id="1change" onClick={(e) => console.dir(e)}/><label for="1change">1 пересадка</label>
-                    <input type="checkbox" id="nochange"/><label for="nochange"> Без пересадки</label>
+                <div className={styles.filtersBlock__filterOptions}>
+                    {displayedTransferFiltersCheckboxArray}
                 </div>
 
 

@@ -6,6 +6,7 @@ const MainBodyContainer = (props) => {
 
     const [data, setData] = useState(null);
     const [filteredFlightsArray, setFilteredFlightsArray] = useState(null);
+    const [transfers, setTransfers] = useState(0);
 
     const fetchFlights = async () => {
         const {data} = await axios.get(`http://localhost:4000/result`)
@@ -20,6 +21,7 @@ const MainBodyContainer = (props) => {
     useEffect(() => {
         if (data) {
             setFilteredFlightsArray(data.flights);
+            setTransfers(getSegmentSize());
         }
     }, [data]);
 
@@ -54,9 +56,21 @@ const MainBodyContainer = (props) => {
         }
     }
 
+    const getSegmentSize = () => {
+        let segmentSizeArray = [];
+        data.flights.map(item => {
+            item.flight.legs.forEach(leg => {
+                segmentSizeArray.push(leg.segments.length);
+            })
+        });
+
+        let checkBoxInputArray = new Set(segmentSizeArray).size;
+        return checkBoxInputArray;
+    }
+
     return (
         <div>
-            <MainBody data={filteredFlightsArray} filterArray={filterArray}/>
+            <MainBody data={filteredFlightsArray} filterArray={filterArray} transfersCount={transfers}/>
         </div>
     )
 }

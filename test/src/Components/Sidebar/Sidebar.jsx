@@ -5,7 +5,7 @@ import FiltersBlock from "./FilterBlock/FiltersBlock";
 const Sidebar = (props) => {
     return (
             <div className={styles.sidebar}>
-                <FiltersBlock filterArray={props.filterArray}/>
+                <FiltersBlock filterArray={props.filterArray} transfersCount={props.transfersCount}/>
             </div>
     )
 }

@@ -7,7 +7,7 @@ import FlightsBlockContainer from "../FlightsBlock/FlightsBlockContainer";
 const MainBody = (props) => {
     return (
         <div className={styles.mainBody}>
-            <Sidebar filterArray={props.filterArray}/>
+            <Sidebar filterArray={props.filterArray} transfersCount={props.transfersCount}/>
             <FlightsBlockContainer data={props.data}/>
         </div>
     )
