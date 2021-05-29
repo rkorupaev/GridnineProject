@@ -27,18 +27,30 @@ const MainBodyContainer = (props) => {
     const filterArray = (filterOption) => {
         switch (filterOption) {
             case `priceup`:
-                filteredFlightsArray.sort(function (a, b) {
-                    return a.flight.price.total.amount - b.flight.price.total.amount;
-                });
+                filteredFlightsArray.sort((a, b) => a.flight.price.total.amount - b.flight.price.total.amount);
                 setFilteredFlightsArray([...filteredFlightsArray]);
-                console.log(filteredFlightsArray);
                 break;
             case `pricedown`:
-                filteredFlightsArray.sort(function (a, b) {
-                    return b.flight.price.total.amount - a.flight.price.total.amount;
-                });
+                filteredFlightsArray.sort((a, b) => b.flight.price.total.amount - a.flight.price.total.amount);
                 setFilteredFlightsArray([...filteredFlightsArray]);
-                console.log(filteredFlightsArray);
+                break;
+            case `duration`:
+                let mappedArray = filteredFlightsArray.map((item, index) => {
+                    let legTravelTime = 0;
+                    item.flight.legs.forEach(leg => {
+                        leg.segments.forEach(segment => {
+                            legTravelTime += segment.travelDuration;
+                        });
+                    });
+                    return {index: index, legTravelTime: legTravelTime, flight: item};
+                });
+
+                mappedArray.sort((a, b) => a.legTravelTime - b.legTravelTime);
+
+                let filteredResult = mappedArray.map(item=> {
+                    return item.flight;
+                })
+                setFilteredFlightsArray([...filteredResult]);
                 break;
         }
     }
